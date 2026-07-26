@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { t } from '../../i18n/index';
 
 const letters = [
   { letter: 'A', img: '/phonetics/b/A.png', audio: 'b/Cuento A.mp3' },
@@ -23,7 +24,7 @@ const letters = [
   <section class="phonetics-hero">
     <div class="container">
       <a href="/phonetics" class="back-link" data-i18n="phonetics.back">← Fonética</a>
-      <h1>Fonética <span class="highlight" data-i18n="phonetics.bookB">Libro B</span></h1>
+      <h1><span class="highlight" data-i18n="phonetics.bookB">Fonética B</span></h1>
       <p data-i18n="phonetics.heroDescB">Escucha la pronunciación de cada letra del alfabeto en inglés</p>
     </div>
   </section>
@@ -33,8 +34,8 @@ const letters = [
       <div class="letters-grid">
         {letters.map((item, i) => (
           <div class="letter-card">
-            <img src={item.img} alt={`Letra ${item.letter}`} class="letter-img" />
-            <button class="play-btn" data-audio={`phon-b-${i}`} aria-label={`Reproducir ${item.letter}`}>
+            <img src={item.img} alt={`${t('phonetics.letter')} ${item.letter}`} class="letter-img" />
+            <button class="play-btn" data-audio={`phon-b-${i}`} aria-label={`${t('phonetics.play')} ${item.letter}`}>
               <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
               </svg>

@@ -1,12 +1,13 @@
 ---
 import '../styles/global.css';
+import { t } from '../i18n/index';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Serie de libros de inglés para preescolar - Emprender Ediciones' } = Astro.props;
+const { title, description = t('footer.desc') } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="es">

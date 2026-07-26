@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import FlipBook from '../../components/FlipBook.astro';
 import Footer from '../../components/Footer.astro';
+import { t } from '../../i18n/index';
 
 const songs = [
   { name: 'Big Small', file: 'a-01.mp3' },
@@ -38,24 +39,24 @@ const songs = [
   <section class="book-hero">
     <div class="container book-hero-inner">
       <div class="book-hero-info">
-        <span class="badge badge-a">Prejardín</span>
+        <span class="badge badge-a" data-i18n="books.badgeA">Pre-K</span>
         <h1>English Lab <span style="color: var(--yellow)">A</span></h1>
-        <p class="book-hero-desc">
-          Esta serie está diseñada para acompañar a los niños en la etapa preescolar, 
-          tomando en cuenta los campos formativos señalados en el Programa de Educación Preescolar: 
-          Desarrollo personal y social, Lenguaje y comunicación, Pensamiento matemático, 
-          Exploración y conocimiento del mundo, Expresión y apreciación artística y 
-          Desarrollo físico y salud.
+        <p class="book-hero-desc" data-i18n="books.heroDesc">
+          This series is designed to accompany children in preschool, 
+          covering the formative fields of the Preschool Education Program: 
+          Personal and social development, Language and communication, Mathematical thinking, 
+          Exploration and knowledge of the world, Artistic expression and appreciation, 
+          and Physical development and health.
         </p>
         <div class="book-hero-meta">
           <div class="meta-item">
-            <strong>Nivel:</strong> Prejardín
+            <strong data-i18n="books.level">Level:</strong> <span data-i18n="books.badgeA">Pre-K</span>
           </div>
           <div class="meta-item">
-            <strong>Enfoque:</strong> Juego, música, exploración
+            <strong data-i18n="books.focus">Focus:</strong> <span data-i18n="books.focusA">Play, music, exploration</span>
           </div>
           <div class="meta-item">
-            <strong>Canciones:</strong> {songs.length} incluidas
+            <strong data-i18n="books.songs">Songs:</strong> {songs.length} <span data-i18n="books.included">included</span>
           </div>
         </div>
       </div>
@@ -82,7 +83,7 @@ const songs = [
         {songs.map((song, i) => (
           <div class="song-item">
             <div class="audio-player">
-              <button class="play-btn" data-audio={`a-${i}`} aria-label="Reproducir">
+              <button class="play-btn" data-audio={`a-${i}`} aria-label={t('books.play')}>
                 <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>

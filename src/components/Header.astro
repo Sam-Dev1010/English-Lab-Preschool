@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
       <a href="/contact" class:list={["nav-link", { active: currentPath === '/contact' }]} data-i18n="nav.contact">Contacto</a>
     </nav>
     <div class="header-actions">
-      <button class="lang-toggle" id="lang-toggle" aria-label="Cambiar idioma">
+      <button class="lang-toggle" id="lang-toggle" data-i18n-aria-label="nav.changeLang" aria-label="Change language">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"/>
           <line x1="2" y1="12" x2="22" y2="12"/>
@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
         </svg>
         <span class="lang-current">ES</span>
       </button>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Menú">
+      <button class="menu-toggle" id="menu-toggle" data-i18n-aria-label="nav.menu" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>

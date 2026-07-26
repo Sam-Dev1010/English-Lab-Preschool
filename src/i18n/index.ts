@@ -56,6 +56,15 @@ export function applyTranslations(lang?: Lang) {
       }
     }
   });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria-label');
+    if (key) {
+      const translation = t(key, l);
+      if (translation !== key) {
+        el.setAttribute('aria-label', translation);
+      }
+    }
+  });
 }
 
 function updateToggleButtons(lang: Lang) {

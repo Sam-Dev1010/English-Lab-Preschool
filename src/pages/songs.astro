@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { t } from '../i18n/index';
 
 const allSongs = [
   // Libro A
@@ -59,7 +60,7 @@ const countB = allSongs.filter(s => s.book === 'B').length;
 const countC = allSongs.filter(s => s.book === 'C').length;
 ---
 
-<Layout title="Canciones">
+<Layout title={t('songs.title')}>
   <Header />
 
   <section class="page-hero">
@@ -67,10 +68,10 @@ const countC = allSongs.filter(s => s.book === 'C').length;
       <h1 data-i18n="songs.title">Canciones <span class="highlight">English Lab</span></h1>
       <p data-i18n="songs.subtitle">{allSongs.length} canciones para aprender inglés de forma divertida. Canciones tradicionales y originales que acompañan cada nivel de la serie.</p>
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Todas ({allSongs.length})</button>
-        <button class="filter-btn filter-a" data-filter="A">Libro A ({countA})</button>
-        <button class="filter-btn filter-b" data-filter="B">Libro B ({countB})</button>
-        <button class="filter-btn filter-c" data-filter="C">Libro C ({countC})</button>
+        <button class="filter-btn active" data-filter="all">{t('songs.all')} ({allSongs.length})</button>
+        <button class="filter-btn filter-a" data-filter="A">{t('songs.bookA')} ({countA})</button>
+        <button class="filter-btn filter-b" data-filter="B">{t('songs.bookB')} ({countB})</button>
+        <button class="filter-btn filter-c" data-filter="C">{t('songs.bookC')} ({countC})</button>
       </div>
     </div>
   </section>
@@ -81,7 +82,7 @@ const countC = allSongs.filter(s => s.book === 'C').length;
         {allSongs.map((song, i) => (
           <div class="song-item" data-book={song.book}>
             <div class="audio-player">
-              <button class="play-btn" data-audio={`songs-${i}`} aria-label="Reproducir">
+              <button class="play-btn" data-audio={`songs-${i}`} aria-label={t('songs.play')}>
                 <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z"/>
                 </svg>

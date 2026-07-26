@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const letters = [
+  { letter: 'A', img: '/phonetics/b/A.png', audio: 'b/Cuento A.mp3' },
+  { letter: 'E', img: '/phonetics/b/E.png', audio: 'b/Cuento E.mp3' },
+  { letter: 'I', img: '/phonetics/b/I.png', audio: 'b/Cuento I.mp3' },
+  { letter: 'L', img: '/phonetics/b/L.png', audio: 'b/Cuento L.mp3' },
+  { letter: 'M', img: '/phonetics/b/M.png', audio: 'b/Cuento M.mp3' },
+  { letter: 'O', img: '/phonetics/b/O.png', audio: 'b/Cuento O.mp3' },
+  { letter: 'P', img: '/phonetics/b/P.png', audio: 'b/Cuento P.mp3' },
+  { letter: 'S', img: '/phonetics/b/S.png', audio: 'b/Cuento S.mp3' },
+  { letter: 'T', img: '/phonetics/b/T.png', audio: 'b/Cuento T.mp3' },
+  { letter: 'U', img: '/phonetics/b/U.png', audio: 'b/Cuento U.mp3' },
+];
+---
+
+<Layout title="Phonetics — Book B">
+  <Header />
+
+  <section class="phonetics-hero">
+    <div class="container">
+      <a href="/phonetics" class="back-link" data-i18n="phonetics.back">← Fonética</a>
+      <h1>Fonética <span class="highlight" data-i18n="phonetics.bookB">Libro B</span></h1>
+      <p data-i18n="phonetics.heroDescB">Escucha la pronunciación de cada letra del alfabeto en inglés</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="letters-grid">
+        {letters.map((item, i) => (
+          <div class="letter-card">
+            <img src={item.img} alt={`Letra ${item.letter}`} class="letter-img" />
+            <button class="play-btn" data-audio={`phon-b-${i}`} aria-label={`Reproducir ${item.letter}`}>
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+            <audio data-id={`phon-b-${i}`} src={`/audio/phonetics/${item.audio}`} preload="metadata"></audio>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .phonetics-hero {
+    padding: 40px 0 32px;
+    background: radial-gradient(circle at 30% 50%, rgba(78, 174, 125, 0.1) 0%, transparent 50%);
+  }
+  .phonetics-hero h1 {
+    margin: 12px 0 8px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .phonetics-hero p {
+    color: #555;
+    font-size: 1.05rem;
+  }
+  .back-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--green);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .highlight {
+    background: linear-gradient(135deg, var(--green), #27ae60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr));
+    gap: 24px;
+  }
+  .letter-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .letter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  }
+  .letter-img {
+    width: 100%;
+    display: block;
+  }
+  .play-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(78, 174, 125, 0.4);
+  }
+  .play-btn:hover {
+    transform: scale(1.1);
+  }
+  .play-icon, .pause-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  @media (max-width: 480px) {
+    .letters-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .play-btn {
+      width: 48px;
+      height: 48px;
+    }
+    .play-icon, .pause-icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.letter-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const btn = card.querySelector('.play-btn');
+      const id = btn?.getAttribute('data-audio');
+      const audio = document.querySelector(`audio[data-id="${id}"]`) as HTMLAudioElement;
+      const playIcon = btn?.querySelector('.play-icon') as HTMLElement;
+      const pauseIcon = btn?.querySelector('.pause-icon') as HTMLElement;
+      if (!audio) return;
+      if (!audio.paused) {
+        audio.pause();
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      } else {
+        document.querySelectorAll('audio').forEach(a => a.pause());
+        document.querySelectorAll('.play-icon').forEach(i => (i as HTMLElement).style.display = '');
+        document.querySelectorAll('.pause-icon').forEach(i => (i as HTMLElement).style.display = 'none');
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+      }
+      audio.addEventListener('ended', () => {
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      });
+    });
+  });
+</script>

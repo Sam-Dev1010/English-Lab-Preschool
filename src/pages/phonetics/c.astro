@@ -1,0 +1,194 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const letters = [
+  { letter: 'A', file: 'c/Letra A-VEED (2).mp3', img: '/phonetics/c/A.png' },
+  { letter: 'B', file: 'c/Letra B-VEED.mp3', img: '/phonetics/c/B.png' },
+  { letter: 'C', file: 'c/letra C-VEED.mp3', img: '/phonetics/c/C.png' },
+  { letter: 'D', file: 'c/Letra D-VEED.mp3', img: '/phonetics/c/D.png' },
+  { letter: 'E', file: 'c/Letra E-VEED.mp3', img: '/phonetics/c/E.png' },
+  { letter: 'F', file: 'c/Letra F-VEED.mp3', img: '/phonetics/c/F.png' },
+  { letter: 'G', file: 'c/Letra G-VEED.mp3', img: '/phonetics/c/G.png' },
+  { letter: 'H', file: 'c/Letra H-VEED.mp3', img: '/phonetics/c/H.png' },
+  { letter: 'I', file: 'c/Letra I-VEED.mp3', img: '/phonetics/c/I.png' },
+  { letter: 'J', file: 'c/Letra J-VEED.mp3', img: '/phonetics/c/J.png' },
+  { letter: 'K', file: 'c/Letra K-VEED.mp3', img: '/phonetics/c/K.png' },
+  { letter: 'L', file: 'c/Letra L-VEED.mp3', img: '/phonetics/c/L.png' },
+  { letter: 'M', file: 'c/Letra M-VEED.mp3', img: '/phonetics/c/M.png' },
+  { letter: 'N', file: 'c/Letra N-VEED.mp3', img: '/phonetics/c/N.png' },
+  { letter: 'O', file: 'c/Letra O-VEED.mp3', img: '/phonetics/c/O.png' },
+  { letter: 'P', file: 'c/Letra P-VEED.mp3', img: '/phonetics/c/P.png' },
+  { letter: 'Q', file: 'c/Letra Q-VEED.mp3', img: '/phonetics/c/Q.png' },
+  { letter: 'R', file: 'c/Letra R-VEED.mp3', img: '/phonetics/c/R.png' },
+  { letter: 'S', file: 'c/Letra S-VEED.mp3', img: '/phonetics/c/S.png' },
+  { letter: 'T', file: 'c/Letra T-VEED.mp3', img: '/phonetics/c/T.png' },
+  { letter: 'U', file: 'c/Letra U-VEED.mp3', img: '/phonetics/c/U.png' },
+  { letter: 'V', file: 'c/Letra V-VEED.mp3', img: '/phonetics/c/V.png' },
+  { letter: 'W', file: 'c/Letra W-VEED.mp3', img: '/phonetics/c/W.png' },
+  { letter: 'X', file: 'c/Letra X-VEED.mp3', img: '/phonetics/c/X.png' },
+  { letter: 'Y', file: 'c/Letra Y-VEED.mp3', img: '/phonetics/c/Y.png' },
+  { letter: 'Z', file: 'c/Letra Z-VEED.mp3', img: '/phonetics/c/Z.png' },
+];
+---
+
+<Layout title="Phonetics — Book C">
+  <Header />
+
+  <section class="phonetics-hero">
+    <div class="container">
+      <a href="/phonetics" class="back-link" data-i18n="phonetics.back">← Fonética</a>
+      <h1>Fonética <span class="highlight" data-i18n="phonetics.bookC">Libro C</span></h1>
+      <p data-i18n="phonetics.heroDescC">Escucha la pronunciación de cada letra del alfabeto en inglés</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="letters-grid">
+        {letters.map((item, i) => (
+          <div class="letter-card">
+            {item.img && <img src={item.img} alt={`Letra ${item.letter}`} class="letter-img" />}
+            <button class="play-btn" data-audio={`phon-c-${i}`} aria-label={`Reproducir ${item.letter}`}>
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+            <audio data-id={`phon-c-${i}`} src={`/audio/phonetics/${item.file}`} preload="metadata"></audio>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .phonetics-hero {
+    padding: 40px 0 32px;
+    background: radial-gradient(circle at 30% 50%, rgba(232, 93, 74, 0.1) 0%, transparent 50%);
+  }
+  .phonetics-hero h1 {
+    margin: 12px 0 8px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .phonetics-hero p {
+    color: #555;
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+  }
+  .back-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--coral);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  .highlight {
+    background: linear-gradient(135deg, var(--coral), #c0392b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .letters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr));
+    gap: 24px;
+  }
+  .letter-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .letter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  }
+  .letter-img {
+    width: 100%;
+    display: block;
+  }
+  .play-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: var(--coral);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(231, 76, 60, 0.4);
+  }
+  .play-btn:hover {
+    transform: scale(1.1);
+  }
+  .play-icon, .pause-icon {
+    width: 26px;
+    height: 26px;
+  }
+  @media (max-width: 480px) {
+    .letters-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .play-btn {
+      width: 48px;
+      height: 48px;
+    }
+    .play-icon, .pause-icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.letter-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const btn = card.querySelector('.play-btn');
+      const id = btn?.getAttribute('data-audio');
+      const audio = document.querySelector(`audio[data-id="${id}"]`) as HTMLAudioElement;
+      const playIcon = btn?.querySelector('.play-icon') as HTMLElement;
+      const pauseIcon = btn?.querySelector('.pause-icon') as HTMLElement;
+      if (!audio) return;
+      if (!audio.paused) {
+        audio.pause();
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      } else {
+        document.querySelectorAll('audio').forEach(a => a.pause());
+        document.querySelectorAll('.play-icon').forEach(i => (i as HTMLElement).style.display = '');
+        document.querySelectorAll('.pause-icon').forEach(i => (i as HTMLElement).style.display = 'none');
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+      }
+      audio.addEventListener('ended', () => {
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      });
+    });
+  });
+</script>

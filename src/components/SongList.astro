@@ -1,0 +1,60 @@
+---
+import AudioPlayer from './AudioPlayer.astro';
+
+interface Song {
+  name: string;
+  file: string;
+}
+
+interface Props {
+  songs: Song[];
+  label?: string;
+}
+
+const { songs, label } = Astro.props;
+---
+<div class="song-list">
+  {label && <h3 class="song-list-title">{label}</h3>}
+  <div class="song-grid">
+    {songs.map((song, i) => (
+      <div class="song-item">
+        <AudioPlayer
+          src={`/audio/${song.file}`}
+          name={song.name}
+          id={`${label?.replace(/\s/g, '') || 'all'}-${i}`}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .song-list-title {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  .song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 12px;
+  }
+  .song-item {
+    animation: fadeInUp 0.3s ease-out backwards;
+  }
+  .song-item:nth-child(1) { animation-delay: 0.05s; }
+  .song-item:nth-child(2) { animation-delay: 0.1s; }
+  .song-item:nth-child(3) { animation-delay: 0.15s; }
+  .song-item:nth-child(4) { animation-delay: 0.2s; }
+  .song-item:nth-child(5) { animation-delay: 0.25s; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .song-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

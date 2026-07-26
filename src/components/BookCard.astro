@@ -1,0 +1,104 @@
+---
+interface Props {
+  title: string;
+  level: string;
+  subtitle: string;
+  description: string;
+  color: string;
+  gradient: string;
+  badgeClass: string;
+  href: string;
+}
+
+const { title, level, subtitle, description, color, gradient, badgeClass, href } = Astro.props;
+---
+<article class="book-card">
+  <div class="book-cover" style={`background: ${gradient}`}>
+    <img src={`/covers/cover-${level.toLowerCase()}.jpg`} alt={title} onerror="this.style.display='none'" />
+    <div class="book-cover-placeholder">
+      <span>{level}</span>
+    </div>
+    <div class="book-cover-overlay">
+      <a href={href} class="btn btn-primary">Ver Libro</a>
+    </div>
+  </div>
+  <div class="book-info">
+    <span class:list={["badge", badgeClass]}>{subtitle}</span>
+    <h3 class="book-title">{title}</h3>
+    <p class="book-desc">{description}</p>
+    <div class="book-links">
+      <a href={href} class="book-link">Explorar →</a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .book-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  .book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+  .book-cover {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+  }
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .book-cover-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--white);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .book-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .book-card:hover .book-cover-overlay {
+    opacity: 1;
+  }
+  .book-info {
+    padding: 24px;
+  }
+  .book-title {
+    margin: 12px 0 8px;
+    font-size: 1.4rem;
+  }
+  .book-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .book-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--orange);
+    transition: var(--transition);
+  }
+  .book-link:hover {
+    color: var(--red);
+  }
+</style>

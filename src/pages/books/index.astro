@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import BookCard from '../../components/BookCard.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Libros">
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1><span data-i18n="books.title">Serie</span> <span class="highlight">English Lab</span></h1>
+      <p data-i18n="books.subtitle">Tres niveles diseñados para acompañar a los niños en la etapa preescolar, tomando en cuenta los campos formativos del Programa de Educación Preescolar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="books-grid">
+        <BookCard
+          title="English Lab A"
+          level="A"
+          subtitle="Prejardín"
+          description="Diseñada para los más pequeños, explorando el inglés a través del juego, la música y la exploración del mundo que los rodea. Incluye actividades de reconocimiento, vocabulario básico y canciones que motivan el aprendizaje."
+          color="#F5C518"
+          gradient="linear-gradient(135deg, #F5C518, #E8722A)"
+          badgeClass="badge-a"
+          href="/books/a"
+        />
+        <BookCard
+          title="English Lab B"
+          level="B"
+          subtitle="Jardín"
+          description="Fortalece los conocimientos adquiridos con actividades de lenguaje, pensamiento matemático y expresión artística. Los niños expanden su vocabulario y comienzan a formar oraciones simples en inglés."
+          color="#4EAE7D"
+          gradient="linear-gradient(135deg, #4EAE7D, #3A86C8)"
+          badgeClass="badge-b"
+          href="/books/b"
+        />
+        <BookCard
+          title="English Lab C"
+          level="C"
+          subtitle="Transición"
+          description="Prepara a los niños para la etapa escolar con bases sólidas en comunicación, exploración y desarrollo personal. Incluye actividades de lectoescritura, comprensión auditiva y expresión oral."
+          color="#E85D4A"
+          gradient="linear-gradient(135deg, #E85D4A, #E8722A)"
+          badgeClass="badge-c"
+          href="/books/c"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section info-section">
+    <div class="container info-inner">
+      <div class="info-card">
+        <div class="info-number" style="color: var(--yellow)">30+</div>
+        <h3 data-i18n="books.songs">Canciones</h3>
+        <p data-i18n="books.songsDesc">Canciones originales y tradicionales para aprender inglés de forma divertida</p>
+      </div>
+      <div class="info-card">
+        <div class="info-number" style="color: var(--green)">6</div>
+        <h3 data-i18n="books.fields">Campos Formativos</h3>
+        <p data-i18n="books.fieldsDesc">Cobertura completa del Programa de Educación Preescolar</p>
+      </div>
+      <div class="info-card">
+        <div class="info-number" style="color: var(--red)">3</div>
+        <h3 data-i18n="books.levels">Niveles</h3>
+        <p data-i18n="books.levelsDesc">Desde Prejardín hasta Transición, un camino de aprendizaje</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(245, 197, 24, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(78, 174, 125, 0.08) 0%, transparent 50%);
+  }
+  .page-hero h1 {
+    margin-bottom: 16px;
+  }
+  .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .page-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 32px;
+  }
+  .info-section {
+    background: var(--white);
+  }
+  .info-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  .info-card {
+    padding: 32px;
+  }
+  .info-number {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .info-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+  .info-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .info-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

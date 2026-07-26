@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const allSongs = [
+  // Libro A
+  { name: 'Big Small', file: 'a-01.mp3', book: 'A' },
+  { name: 'Color Song', file: 'a-02.mp3', book: 'A' },
+  { name: 'Goodbye Song', file: 'a-03.mp3', book: 'A' },
+  { name: 'Good Morning', file: 'a-04.mp3', book: 'A' },
+  { name: 'Hello!', file: 'a-05.mp3', book: 'A' },
+  { name: 'I Can Sing A Rainbow', file: 'a-06.mp3', book: 'A' },
+  { name: 'I See Something Blue', file: 'a-07.mp3', book: 'A' },
+  { name: 'Long and Short', file: 'a-08.mp3', book: 'A' },
+  { name: 'My Teddy Bear', file: 'a-09.mp3', book: 'A' },
+  { name: 'My Toys', file: 'a-10.mp3', book: 'A' },
+  { name: 'Open Close!', file: 'a-11.mp3', book: 'A' },
+  { name: 'Open Shut Them', file: 'a-12.mp3', book: 'A' },
+  { name: 'Orange Song', file: 'a-13.mp3', book: 'A' },
+  { name: 'Parts Of The Face', file: 'a-14.mp3', book: 'A' },
+  { name: 'Purple Song', file: 'a-15.mp3', book: 'A' },
+  { name: 'Sports Balls Song', file: 'a-16.mp3', book: 'A' },
+  { name: 'The Animals On The Farm', file: 'a-17.mp3', book: 'A' },
+  { name: 'The Color Green Song', file: 'a-18.mp3', book: 'A' },
+  { name: 'The Finger Family', file: 'a-19.mp3', book: 'A' },
+  { name: 'The Pinocchio', file: 'a-20.mp3', book: 'A' },
+  { name: 'The Yellow Song', file: 'a-21.mp3', book: 'A' },
+  { name: 'Touch Your Head', file: 'a-22.mp3', book: 'A' },
+  { name: 'Two Eyes Two Ears', file: 'a-23.mp3', book: 'A' },
+  { name: 'Whose Eyes', file: 'a-24.mp3', book: 'A' },
+  // Libro B
+  { name: 'This Is My House', file: 'b-01.mp3', book: 'B' },
+  { name: 'Boys & Girls', file: 'b-02.mp3', book: 'B' },
+  { name: 'Clothing Song', file: 'b-03.mp3', book: 'B' },
+  { name: 'Five Little Monkeys', file: 'b-04.mp3', book: 'B' },
+  { name: 'Head Shoulders Knees & Toes', file: 'b-05.mp3', book: 'B' },
+  { name: 'If You\'re Happy', file: 'b-06.mp3', book: 'B' },
+  { name: 'The Finger Family', file: 'b-07.mp3', book: 'B' },
+  { name: 'The Shape Song 1', file: 'b-08.mp3', book: 'B' },
+  { name: 'The Shape Song 2', file: 'b-09.mp3', book: 'B' },
+  // Libro C
+  { name: 'Body Parts', file: 'c-01.mp3', book: 'C' },
+  { name: 'Do You Like Broccoli Ice Cream', file: 'c-02.mp3', book: 'C' },
+  { name: 'Head Shoulders Knees & Toes', file: 'c-03.mp3', book: 'C' },
+  { name: 'Let\'s Go To The Zoo', file: 'c-04.mp3', book: 'C' },
+  { name: 'Numbers Song 1-10', file: 'c-05.mp3', book: 'C' },
+  { name: 'Rain Rain Go Away', file: 'c-06.mp3', book: 'C' },
+  { name: 'Say Good Morning', file: 'c-07.mp3', book: 'C' },
+  { name: 'The Animals On The Farm', file: 'c-08.mp3', book: 'C' },
+  { name: 'The Greetings Song', file: 'c-09.mp3', book: 'C' },
+  { name: 'The Opposites Song', file: 'c-10.mp3', book: 'C' },
+  { name: 'The Pinocchio', file: 'c-11.mp3', book: 'C' },
+  { name: 'Train & Car Songs', file: 'c-12.mp3', book: 'C' },
+];
+
+const countA = allSongs.filter(s => s.book === 'A').length;
+const countB = allSongs.filter(s => s.book === 'B').length;
+const countC = allSongs.filter(s => s.book === 'C').length;
+---
+
+<Layout title="Canciones">
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1 data-i18n="songs.title">Canciones <span class="highlight">English Lab</span></h1>
+      <p data-i18n="songs.subtitle">{allSongs.length} canciones para aprender inglés de forma divertida. Canciones tradicionales y originales que acompañan cada nivel de la serie.</p>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Todas ({allSongs.length})</button>
+        <button class="filter-btn filter-a" data-filter="A">Libro A ({countA})</button>
+        <button class="filter-btn filter-b" data-filter="B">Libro B ({countB})</button>
+        <button class="filter-btn filter-c" data-filter="C">Libro C ({countC})</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="songs-grid" id="songs-grid">
+        {allSongs.map((song, i) => (
+          <div class="song-item" data-book={song.book}>
+            <div class="audio-player">
+              <button class="play-btn" data-audio={`songs-${i}`} aria-label="Reproducir">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+              <div class="player-body">
+                <span class="player-name">{song.name}</span>
+                <div class="player-meta">
+                  <span class:list={["badge", song.book === 'A' ? 'badge-a' : song.book === 'B' ? 'badge-b' : 'badge-c']}>
+                    Libro {song.book}
+                  </span>
+                </div>
+                <div class="player-progress-wrap">
+                  <div class="player-progress-bar">
+                    <div class="player-progress-fill"></div>
+                  </div>
+                  <span class="player-time">0:00</span>
+                </div>
+              </div>
+              <audio data-id={`songs-${i}`} src={`/audio/${song.file}`} preload="metadata"></audio>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(232, 114, 42, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(78, 174, 125, 0.08) 0%, transparent 50%);
+  }
+  .page-hero h1 {
+    margin-bottom: 16px;
+  }
+  .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .page-hero p {
+    max-width: 600px;
+    margin: 0 auto 32px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--gray-light);
+    background: var(--white);
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .filter-btn:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .filter-btn.active {
+    background: var(--orange);
+    color: var(--white);
+    border-color: var(--orange);
+  }
+  .filter-a.active { background: var(--yellow); color: var(--dark); border-color: var(--yellow); }
+  .filter-b.active { background: var(--green); color: var(--white); border-color: var(--green); }
+  .filter-c.active { background: var(--purple); color: var(--white); border-color: var(--purple); }
+
+  .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+    gap: 12px;
+  }
+  .song-item {
+    transition: var(--transition);
+  }
+  .song-item.hidden {
+    display: none;
+  }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: var(--transition);
+  }
+  .audio-player:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+  .play-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--orange);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+  .play-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(232, 114, 42, 0.35);
+  }
+  .play-icon, .pause-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .player-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .player-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-meta {
+    margin-bottom: 6px;
+  }
+  .player-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .player-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-light);
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    border-radius: 6px;
+    transition: width 0.1s linear;
+  }
+  .player-time {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 600;
+    min-width: 36px;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .songs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.play-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-audio');
+      const audio = document.querySelector(`audio[data-id="${id}"]`) as HTMLAudioElement;
+      const playIcon = btn.querySelector('.play-icon') as HTMLElement;
+      const pauseIcon = btn.querySelector('.pause-icon') as HTMLElement;
+      const fill = btn.closest('.audio-player')?.querySelector('.player-progress-fill') as HTMLElement;
+      const timeEl = btn.closest('.audio-player')?.querySelector('.player-time') as HTMLElement;
+
+      if (!audio) return;
+
+      if (!audio.paused) {
+        audio.pause();
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      } else {
+        document.querySelectorAll('audio').forEach(a => a.pause());
+        document.querySelectorAll('.play-icon').forEach(i => (i as HTMLElement).style.display = '');
+        document.querySelectorAll('.pause-icon').forEach(i => (i as HTMLElement).style.display = 'none');
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+      }
+
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration && fill && timeEl) {
+          fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+          const m = Math.floor(audio.currentTime / 60);
+          const s = Math.floor(audio.currentTime % 60);
+          timeEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+        if (fill) fill.style.width = '0%';
+        if (timeEl) timeEl.textContent = '0:00';
+      });
+    });
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.song-item').forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-book') === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Sobre Nosotros">
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1><span data-i18n="about.title">Sobre</span> <span class="highlight">Emprender Ediciones</span></h1>
+      <p data-i18n="about.subtitle">Publicamos material educativo de calidad para acompañar a los niños en su proceso de aprendizaje.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-content">
+        <h2 data-i18n="about.missionTitle">Nuestra Misión</h2>
+        <p data-i18n="about.missionP1">
+          Emprender Ediciones es una editorial comprometida con la educación infantil. 
+          Nuestra misión es proporcionar materiales educativos de alta calidad que acompañen 
+          a los niños en su proceso de aprendizaje, haciendo del inglés un experiencia 
+          divertida y significativa.
+        </p>
+        <p data-i18n="about.missionP2">
+          La serie <strong>English Lab</strong> fue creada pensando en los profesores y los niños 
+          de preescolar, alineada con los campos formativos del Programa de Educación Preescolar 
+          para garantizar un aprendizaje integral.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/logos/LOGO EMPRENDER EDICIONES.jpg" alt="Emprender Ediciones" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section values-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="about.valuesTitle">Nuestros Valores</h2>
+      <p class="section-subtitle" data-i18n="about.valuesSubtitle">Los principios que guían nuestro trabajo editorial</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon" style="background: #FFF3D6">📚</div>
+          <h3 data-i18n="about.value1Title">Calidad Educativa</h3>
+          <p data-i18n="about.value1Desc">Contenidos revisados por expertos en educación preescolar y didáctica del inglés.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background: #D6F5E3">🎮</div>
+          <h3 data-i18n="about.value2Title">Aprendizaje Divertido</h3>
+          <p data-i18n="about.value2Desc">Actividades lúdicas, canciones y juegos que hacen del aprendizaje una aventura.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background: #FFE0D6">👨‍👩‍👧‍👦</div>
+          <h3 data-i18n="about.value3Title">Inclusión</h3>
+          <p data-i18n="about.value3Desc">Materiales diseñados para todos los niños, respetando sus ritmos de aprendizaje.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon" style="background: #D6EBF5">🌍</div>
+          <h3 data-i18n="about.value4Title">Visión Global</h3>
+          <p data-i18n="about.value4Desc">Preparando a los niños para comunicarse en un mundo cada vez más conectado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-inner">
+      <h2 data-i18n="about.ctaTitle">¿Tienes preguntas?</h2>
+      <p data-i18n="about.ctaDesc">Estamos aquí para ayudarte. Contáctanos y con gusto atenderemos tus consultas.</p>
+      <a href="https://wa.me/573214649099" target="_blank" class="btn btn-primary" style="background: #25D366; border-color: #25D366">WhatsApp</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(245, 197, 24, 0.1) 0%, transparent 50%);
+  }
+  .page-hero h1 { margin-bottom: 16px; }
+  .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .page-hero p {
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-content h2 {
+    margin-bottom: 16px;
+  }
+  .about-content p {
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+  }
+  .values-section {
+    background: var(--white);
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .value-card {
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--cream);
+    text-align: center;
+    transition: var(--transition);
+  }
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .value-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 16px;
+  }
+  .value-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+  .value-card p { font-size: 0.9rem; color: #666; }
+  .cta-section {
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    color: var(--white);
+    text-align: center;
+  }
+  .cta-inner h2 { color: var(--white); margin-bottom: 12px; }
+  .cta-inner p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .about-image {
+      order: -1;
+    }
+    .about-image img {
+      max-width: 200px;
+    }
+  }
+</style>

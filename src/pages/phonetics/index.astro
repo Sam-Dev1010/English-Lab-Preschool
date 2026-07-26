@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Phonetics">
+  <Header />
+
+  <section class="phonetics-hero">
+    <div class="container">
+      <h1 data-i18n="phonetics.title">Fonética <span class="highlight">English Lab</span></h1>
+      <p data-i18n="phonetics.subtitle">Aprende la pronunciación de cada letra del alfabeto en inglés con audios interactivos</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="levels-grid">
+        <a href="/phonetics/b" class="level-card">
+          <img src="/phonetics/b/INICIO.png" alt="Fonética Libro B" class="level-cover" />
+          <div class="level-icon" style="background: rgba(78, 174, 125, 0.15); color: var(--green)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <span class="badge badge-b">Jardín</span>
+          <h2 data-i18n="phonetics.bookB">Fonética B</h2>
+          <p class="level-desc" data-i18n="phonetics.bookBDesc">10 audios — Letras A, E, I, L, M, O, P, S, T, U</p>
+          <span class="level-link">Ver más →</span>
+        </a>
+
+        <a href="/phonetics/c" class="level-card">
+          <img src="/phonetics/c/INICIO.png" alt="Fonética Libro C" class="level-cover" />
+          <div class="level-icon" style="background: rgba(232, 93, 74, 0.15); color: var(--coral)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <span class="badge badge-c">Transición</span>
+          <h2>Fonética C</h2>
+          <p class="level-desc">26 audios — Letras A a Z</p>
+          <span class="level-link">Explorar →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .phonetics-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(232, 114, 42, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(232, 93, 74, 0.08) 0%, transparent 50%);
+  }
+  .phonetics-hero h1 {
+    margin-bottom: 16px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+  .phonetics-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .level-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 32px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .level-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
+  .level-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .level-card h2 {
+    font-size: 1.4rem;
+    margin: 8px 0;
+  }
+  .level-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  .level-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--orange);
+  }
+  .level-card:hover .level-link {
+    color: var(--red);
+  }
+  .level-cover {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+</style>

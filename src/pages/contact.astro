@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto">
+  <Header />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1><span class="highlight" data-i18n="contact.title">Contacto</span></h1>
+      <p data-i18n="contact.subtitle">¿Tienes preguntas sobre nuestra serie de libros? Escríbenos por WhatsApp y te atendemos de inmediato.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2 data-i18n="contact.infoTitle">Información de Contacto</h2>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon wa-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <strong data-i18n="contact.whatsapp">WhatsApp</strong>
+              <p>+57 321 464 9099</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div>
+              <strong data-i18n="contact.email">Email</strong>
+              <p>emprenderedicionesmyg@gmail.com</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong data-i18n="contact.location">Ubicación</strong>
+              <p data-i18n="contact.locationVal">Bogotá, Colombia</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div>
+              <strong data-i18n="contact.schedule">Horario</strong>
+              <p data-i18n="contact.scheduleVal">Lunes a Viernes, 7:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-card">
+        <div class="wa-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h3 data-i18n="contact.formTitle">Escríbenos por WhatsApp</h3>
+        <p data-i18n="contact.formDesc">Respuesta inmediata. Consultas sobre libros, pedidos, distribución y más.</p>
+        <form class="wa-form" id="wa-form">
+          <div class="form-group">
+            <label for="wa-name" data-i18n="contact.nameLabel">Tu nombre</label>
+            <input type="text" id="wa-name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Ej: María López" required />
+          </div>
+          <div class="form-group">
+            <label for="wa-subject" data-i18n="contact.subjectLabel">¿Qué necesitas?</label>
+            <select id="wa-subject" required>
+              <option value="" data-i18n="contact.subjectDefault">Selecciona un asunto</option>
+              <option value="Información sobre los libros" data-i18n="contact.subject1">Información sobre los libros</option>
+              <option value="Pedido / Distribución" data-i18n="contact.subject2">Pedido / Distribución</option>
+              <option value="Colaboración" data-i18n="contact.subject3">Colaboración</option>
+              <option value="Otro" data-i18n="contact.subject4">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="wa-message" data-i18n="contact.messageLabel">Mensaje</label>
+            <textarea id="wa-message" rows="4" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit" class="btn-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="contact.sendBtn">Enviar por WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 30% 50%, rgba(37, 211, 102, 0.08) 0%, transparent 50%);
+  }
+  .page-hero h1 { margin-bottom: 16px; }
+  .highlight {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .page-hero p {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .contact-info h2 {
+    margin-bottom: 24px;
+  }
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--cream);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .wa-icon {
+    background: #e8faf0;
+    color: #25D366;
+  }
+  .info-item strong {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 2px;
+  }
+  .info-item p {
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .wa-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    border: 2px solid #e8faf0;
+  }
+  .wa-card-icon {
+    width: 72px;
+    height: 72px;
+    background: #e8faf0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #25D366;
+    margin-bottom: 16px;
+  }
+  .wa-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  .wa-card > p {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: var(--cream);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #25D366;
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+  }
+  .form-group textarea {
+    resize: vertical;
+  }
+  .btn-wa {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-wa:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .wa-card {
+      padding: 28px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('wa-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('wa-name') as HTMLInputElement).value;
+    const subject = (document.getElementById('wa-subject') as HTMLSelectElement).value;
+    const message = (document.getElementById('wa-message') as HTMLTextAreaElement).value;
+
+    const text = `Hola, soy ${name}. ${subject}. ${message}`;
+    const waLink = `https://wa.me/573214649099?text=${encodeURIComponent(text)}`;
+    window.open(waLink, '_blank');
+  });
+</script>

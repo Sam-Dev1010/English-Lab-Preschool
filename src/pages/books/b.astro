@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import FlipBook from '../../components/FlipBook.astro';
+import Footer from '../../components/Footer.astro';
+
+const songs = [
+  { name: 'This Is My House', file: 'b-01.mp3' },
+  { name: 'Boys & Girls', file: 'b-02.mp3' },
+  { name: 'Clothing Song', file: 'b-03.mp3' },
+  { name: 'Five Little Monkeys', file: 'b-04.mp3' },
+  { name: 'Head Shoulders Knees & Toes', file: 'b-05.mp3' },
+  { name: 'If You\'re Happy', file: 'b-06.mp3' },
+  { name: 'The Finger Family', file: 'b-07.mp3' },
+  { name: 'The Shape Song 1', file: 'b-08.mp3' },
+  { name: 'The Shape Song 2', file: 'b-09.mp3' },
+];
+---
+
+<Layout title="English Lab B — Jardín">
+  <Header />
+
+  <section class="book-hero">
+    <div class="container book-hero-inner">
+      <div class="book-hero-info">
+        <span class="badge badge-b">Jardín</span>
+        <h1>English Lab <span style="color: var(--green)">B</span></h1>
+        <p class="book-hero-desc">
+          Esta serie está diseñada para acompañar a los niños en la etapa preescolar, 
+          tomando en cuenta los campos formativos señalados en el Programa de Educación Preescolar: 
+          Desarrollo personal y social, Lenguaje y comunicación, Pensamiento matemático, 
+          Exploración y conocimiento del mundo, Expresión y apreciación artística y 
+          Desarrollo físico y salud.
+        </p>
+        <div class="book-hero-meta">
+          <div class="meta-item">
+            <strong>Nivel:</strong> Jardín
+          </div>
+          <div class="meta-item">
+            <strong>Enfoque:</strong> Creatividad, expresión, lectura temprana
+          </div>
+          <div class="meta-item">
+            <strong>Canciones:</strong> {songs.length} incluidas
+          </div>
+        </div>
+      </div>
+      <div class="book-hero-cover">
+        <div class="cover-glow" style="background: radial-gradient(circle, rgba(46, 204, 113, 0.3), transparent 70%)"></div>
+        <img src="/covers/cover-b.jpg" alt="English Lab B" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="books.previewTitle">Vista Previa del Libro</h2>
+      <p class="section-subtitle" data-i18n="books.previewDesc">Hojear las páginas de ejemplo de English Lab B</p>
+      <FlipBook bookId="b" color="#2ECC71" title="English Lab B" totalPages={6} />
+    </div>
+  </section>
+
+  <section class="section songs-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="books.songsTitle">Canciones del Libro B</h2>
+      <p class="section-subtitle" data-i18n="books.songsDescDetail">Escucha las canciones que acompañan el aprendizaje</p>
+      <div class="songs-grid">
+        {songs.map((song, i) => (
+          <div class="song-item">
+            <div class="audio-player">
+              <button class="play-btn" data-audio={`b-${i}`} aria-label="Reproducir">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+              <div class="player-body">
+                <span class="player-name">{song.name}</span>
+                <div class="player-progress-wrap">
+                  <div class="player-progress-bar">
+                    <div class="player-progress-fill"></div>
+                  </div>
+                  <span class="player-time">0:00</span>
+                </div>
+              </div>
+              <audio data-id={`b-${i}`} src={`/audio/${song.file}`} preload="metadata"></audio>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .book-hero {
+    padding: 60px 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 50%);
+  }
+  .book-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .book-hero-info h1 {
+    margin: 16px 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .book-hero-desc {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+  .book-hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .meta-item {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  .meta-item strong {
+    color: var(--dark);
+  }
+  .book-hero-cover {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cover-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  .book-hero-cover img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 2123 / 1461;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .songs-section {
+    background: var(--white);
+  }
+  .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: 12px;
+  }
+  .audio-player {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    background: var(--cream);
+    border-radius: 14px;
+    transition: var(--transition);
+  }
+  .audio-player:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+  .play-btn:hover {
+    transform: scale(1.05);
+  }
+  .play-icon, .pause-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .player-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .player-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .player-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-light);
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--green), #27ae60);
+    border-radius: 6px;
+    transition: width 0.1s linear;
+  }
+  .player-time {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 600;
+    min-width: 36px;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .book-hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .book-hero-meta {
+      align-items: center;
+    }
+    .songs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.play-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-audio');
+      const audio = document.querySelector(`audio[data-id="${id}"]`) as HTMLAudioElement;
+      const playIcon = btn.querySelector('.play-icon') as HTMLElement;
+      const pauseIcon = btn.querySelector('.pause-icon') as HTMLElement;
+      const fill = btn.closest('.audio-player')?.querySelector('.player-progress-fill') as HTMLElement;
+      const timeEl = btn.closest('.audio-player')?.querySelector('.player-time') as HTMLElement;
+
+      if (!audio) return;
+
+      if (!audio.paused) {
+        audio.pause();
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      } else {
+        document.querySelectorAll('audio').forEach(a => a.pause());
+        document.querySelectorAll('.play-icon').forEach(i => (i as HTMLElement).style.display = '');
+        document.querySelectorAll('.pause-icon').forEach(i => (i as HTMLElement).style.display = 'none');
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+      }
+
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration && fill && timeEl) {
+          fill.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
+          const m = Math.floor(audio.currentTime / 60);
+          const s = Math.floor(audio.currentTime % 60);
+          timeEl.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+        if (fill) fill.style.width = '0%';
+        if (timeEl) timeEl.textContent = '0:00';
+      });
+    });
+  });
+</script>

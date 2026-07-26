@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Inicio">
+  <Header />
+
+  <Hero />
+
+  <section class="section books-section">
+    <div class="container">
+      <h2 class="section-title"><span data-i18n="home.seriesTitle">Serie</span> <span class="text-gradient" data-i18n="home.seriesTitle">English Lab</span></h2>
+      <p class="section-subtitle" data-i18n="home.seriesSubtitle">Tres niveles diseñados para acompañar a los niños en el aprendizaje del inglés</p>
+
+      <div class="books-showcase">
+        <a href="/books/a" class="book-row">
+          <div class="book-cover-wrap">
+            <img src="/covers/cover-a.jpg" alt="English Lab A" />
+            <div class="book-cover-glow" style="background: rgba(245, 197, 24, 0.25)"></div>
+          </div>
+          <div class="book-row-info">
+            <span class="badge badge-a" data-i18n="home.preK">Prejardín</span>
+            <h3 data-i18n="home.bookATitle">English Lab <span style="color: #E8722A">A</span></h3>
+            <p data-i18n="home.bookADesc">Diseñada para los más pequeños, explorando el inglés a través del juego, la música y la exploración del mundo que los rodea.</p>
+            <span class="book-row-link" data-i18n="home.explore">Explorar libro →</span>
+          </div>
+        </a>
+
+        <a href="/books/b" class="book-row book-row-reverse">
+          <div class="book-cover-wrap">
+            <img src="/covers/cover-b.jpg" alt="English Lab B" />
+            <div class="book-cover-glow" style="background: rgba(78, 174, 125, 0.25)"></div>
+          </div>
+          <div class="book-row-info">
+            <span class="badge badge-b" data-i18n="home.kindergarten">Jardín</span>
+            <h3 data-i18n="home.bookBTitle">English Lab <span style="color: #4EAE7D">B</span></h3>
+            <p data-i18n="home.bookBDesc">Fortalece los conocimientos con actividades de lenguaje, pensamiento matemático y expresión artística en inglés.</p>
+            <span class="book-row-link" data-i18n="home.explore">Explorar libro →</span>
+          </div>
+        </a>
+
+        <a href="/books/c" class="book-row">
+          <div class="book-cover-wrap">
+            <img src="/covers/cover-c.jpg" alt="English Lab C" />
+            <div class="book-cover-glow" style="background: rgba(232, 93, 74, 0.25)"></div>
+          </div>
+          <div class="book-row-info">
+            <span class="badge badge-c" data-i18n="home.transition">Transición</span>
+            <h3 data-i18n="home.bookCTitle">English Lab <span style="color: #E85D4A">C</span></h3>
+            <p data-i18n="home.bookCDesc">Prepara a los niños para la etapa escolar con bases sólidas en comunicación, exploración y desarrollo personal.</p>
+            <span class="book-row-link" data-i18n="home.explore">Explorar libro →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="home.fieldsTitle">Campos Formativos</h2>
+      <p class="section-subtitle" data-i18n="home.fieldsSubtitle">Nuestra serie abarca los seis campos del Programa de Educación Preescolar</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #FFF3D6; color: #B8860B">🧠</div>
+          <h3 data-i18n="home.field1Title">Desarrollo Personal y Social</h3>
+          <p data-i18n="home.field1Desc">Construcción de identidad y relaciones sociales a través del inglés.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #D6F5E3; color: #2D7A4F">💬</div>
+          <h3 data-i18n="home.field2Title">Lenguaje y Comunicación</h3>
+          <p data-i18n="home.field2Desc">Desarrollo de habilidades comunicativas en un segundo idioma.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #FFE0D6; color: #C0392B">🔢</div>
+          <h3 data-i18n="home.field3Title">Pensamiento Matemático</h3>
+          <p data-i18n="home.field3Desc">Números, formas y conceptos matemáticos en inglés.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #D6EBF5; color: #2874A6">🌍</div>
+          <h3 data-i18n="home.field4Title">Exploración y Conocimiento</h3>
+          <p data-i18n="home.field4Desc">Descubrimiento del mundo a través de la curiosidad natural.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #F5E6F5; color: #7D3C98">🎨</div>
+          <h3 data-i18n="home.field5Title">Expresión Artística</h3>
+          <p data-i18n="home.field5Desc">Creatividad, arte y música como vehículos de aprendizaje.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #E8F8F5; color: #1ABC9C">🏃</div>
+          <h3 data-i18n="home.field6Title">Desarrollo Físico y Salud</h3>
+          <p data-i18n="home.field6Desc">Actividades físicas y hábitos saludables en inglés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container cta-inner">
+      <div class="cta-content">
+        <h2 data-i18n="home.ctaTitle">¿Listo para conocer nuestros libros?</h2>
+        <p data-i18n="home.ctaDesc">Explora cada nivel de la serie English Lab y descubre cómo acompañamos el aprendizaje del inglés en preescolar.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/573214649099" target="_blank" class="btn btn-primary" style="background: #25D366; border-color: #25D366" data-i18n="home.whatsapp">WhatsApp</a>
+        <a href="/contact" class="btn btn-secondary" style="border-color: white; color: white; background: transparent" data-i18n="home.contact">Contactar</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .text-gradient {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .books-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .book-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+  }
+  .book-row:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+  .book-row-reverse {
+    direction: rtl;
+  }
+  .book-row-reverse > * {
+    direction: ltr;
+  }
+  .book-row-reverse .book-cover-wrap {
+    order: 2;
+  }
+  .book-row-reverse .book-row-info {
+    text-align: right;
+  }
+  .book-row-reverse .book-row-link {
+    justify-content: flex-end;
+  }
+  .book-cover-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 2123 / 1461;
+    flex-shrink: 0;
+  }
+  .book-cover-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+    background: #f5f0ea;
+  }
+  .book-cover-glow {
+    position: absolute;
+    bottom: -6px;
+    left: 10%;
+    width: 80%;
+    height: 30px;
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 0;
+  }
+  .book-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .book-row-info h3 {
+    font-size: 1.5rem;
+    margin: 4px 0;
+  }
+  .book-row-info p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 460px;
+  }
+  .book-row-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--orange);
+    margin-top: 4px;
+    transition: color 0.2s;
+  }
+  .book-row:hover .book-row-link {
+    color: var(--red);
+  }
+
+  @media (max-width: 768px) {
+    .book-row,
+    .book-row-reverse {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      text-align: center;
+      padding: 24px;
+      direction: ltr;
+    }
+    .book-cover-wrap {
+      max-width: 100%;
+    }
+    .book-row-info p {
+      max-width: 100%;
+    }
+    .book-row-link {
+      justify-content: center;
+    }
+  }
+  .features-section {
+    background: var(--white);
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    padding: 32px;
+    border-radius: var(--radius);
+    background: var(--cream);
+    transition: var(--transition);
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .cta-section {
+    background: linear-gradient(135deg, var(--orange), var(--red)) !important;
+    color: var(--white);
+    padding: 60px 0;
+  }
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cta-content h2 {
+    color: var(--white) !important;
+    margin-bottom: 8px;
+  }
+  .cta-content p {
+    color: rgba(255,255,255,0.9) !important;
+    max-width: 480px;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .cta-content p {
+      max-width: 100%;
+    }
+    .cta-actions {
+      justify-content: center;
+    }
+  }
+</style>

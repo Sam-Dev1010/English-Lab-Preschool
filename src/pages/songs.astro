@@ -68,10 +68,10 @@ const countC = allSongs.filter(s => s.book === 'C').length;
       <h1 data-i18n="songs.title">Canciones <span class="highlight">English Lab</span></h1>
       <p data-i18n="songs.subtitle">{allSongs.length} canciones para aprender inglés de forma divertida. Canciones tradicionales y originales que acompañan cada nivel de la serie.</p>
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">{t('songs.all')} ({allSongs.length})</button>
-        <button class="filter-btn filter-a" data-filter="A">{t('songs.bookA')} ({countA})</button>
-        <button class="filter-btn filter-b" data-filter="B">{t('songs.bookB')} ({countB})</button>
-        <button class="filter-btn filter-c" data-filter="C">{t('songs.bookC')} ({countC})</button>
+        <button class="filter-btn active" data-filter="all"><span data-i18n="songs.all">Todas</span> ({allSongs.length})</button>
+        <button class="filter-btn filter-a" data-filter="A"><span data-i18n="songs.bookA">Libro A</span> ({countA})</button>
+        <button class="filter-btn filter-b" data-filter="B"><span data-i18n="songs.bookB">Libro B</span> ({countB})</button>
+        <button class="filter-btn filter-c" data-filter="C"><span data-i18n="songs.bookC">Libro C</span> ({countC})</button>
       </div>
     </div>
   </section>

@@ -4,13 +4,14 @@ interface Props {
   level: string;
   subtitle: string;
   description: string;
+  descKey?: string;
   color: string;
   gradient: string;
   badgeClass: string;
   href: string;
 }
 
-const { title, level, subtitle, description, color, gradient, badgeClass, href } = Astro.props;
+const { title, level, subtitle, description, descKey, color, gradient, badgeClass, href } = Astro.props;
 ---
 <article class="book-card">
   <div class="book-cover" style={`background: ${gradient}`}>
@@ -25,7 +26,7 @@ const { title, level, subtitle, description, color, gradient, badgeClass, href }
   <div class="book-info">
     <span class:list={["badge", badgeClass]}>{subtitle}</span>
     <h3 class="book-title">{title}</h3>
-    <p class="book-desc">{description}</p>
+    <p class="book-desc" {...descKey ? { 'data-i18n': descKey } : {}}>{description}</p>
     <div class="book-links">
       <a href={href} class="book-link" data-i18n="phonetics.explore">Explore →</a>
     </div>

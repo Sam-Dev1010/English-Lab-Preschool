@@ -1,4 +1,4 @@
-# English Lab Web - Sitio Web Promocional y PedagÃ³gico ðŸ“šðŸŽ§
+# English Lab Web - Sitio Web Promocional
 
 [![Astro](https://img.shields.io/badge/Astro-v7.1.3-orange.svg?style=flat-square&logo=astro)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v6.0.3-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)

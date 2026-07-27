@@ -1,83 +1,83 @@
-# English Lab Web - Sitio Web Promocional
+# English Lab Web - Sitio Web Promocional y Pedagógico 📚🎧
 
 [![Astro](https://img.shields.io/badge/Astro-v7.1.3-orange.svg?style=flat-square&logo=astro)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v6.0.3-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-v22.12.0-green.svg?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)]()
 
-Sitio web estÃ¡tico de alto rendimiento diseÃ±ado para la promociÃ³n y acompaÃ±amiento pedagÃ³gico de la serie de libros de inglÃ©s preescolar **"English Lab"** (Niveles A, B y C), desarrollada para la editorial **Emprender Ediciones** (BogotÃ¡, Colombia).
+Sitio web estático de alto rendimiento diseñado para la promoción y acompañamiento pedagógico de la serie de libros de inglés preescolar **"English Lab"** (Niveles A, B y C), desarrollada para la editorial **Emprender Ediciones** (Bogotá, Colombia).
 
-El proyecto integra tecnologÃ­as web modernas para ofrecer una experiencia interactiva a padres de familia, docentes y directivos institucionales, incluyendo visores de libros en 3D (FlipBook), reproductores de audio multitrack y un sistema de fonÃ©tica interactiva.
-
----
-
-## ðŸš€ CaracterÃ­sticas Principales
-
-- ðŸ“– **Visor FlipBook 3D**: PrevisualizaciÃ³n interactiva de pÃ¡ginas de ejemplo con animaciones 3D y soporte tÃ¡ctil (*swipe*) para dispositivos mÃ³viles.
-- ðŸŽµ **CatÃ¡logo Musical (45 Canciones)**: Reproductor de audio exclusivo con control de concurrencia (reproducir un track detiene automÃ¡ticamente el anterior).
-- ðŸ”¤ **MÃ³dulo de FonÃ©tica Interactiva (36 Audios + 39 ImÃ¡genes)**: Tarjetas interactivas de vocabulario y pronunciaciÃ³n A-Z para los niveles B y C.
-- ðŸŒ **InternacionalizaciÃ³n (i18n Client-Side)**: Soporte bilingÃ¼e (EspaÃ±ol / InglÃ©s) en tiempo real con mÃ¡s de 80 claves de traducciÃ³n sin recarga de pÃ¡gina.
-- ðŸ’¬ **IntegraciÃ³n con WhatsApp API**: Canal de contacto comercial pre-configurado para atenciÃ³n a clientes e instituciones educativas.
-- ðŸ‡¨ðŸ‡´ **AlineaciÃ³n PedagÃ³gica**: Basado en los 6 campos formativos del Programa de EducaciÃ³n Preescolar Colombiano.
-- âš¡ **Rendimiento UltrarrÃ¡pido (SSG)**: Compilado con Astro v7 para generar HTML/CSS estÃ¡tico con 0KB de JavaScript innecesario en el cliente.
+El proyecto integra tecnologías web modernas para ofrecer una experiencia interactiva a padres de familia, docentes y directivos institucionales, incluyendo visores de libros en 3D (FlipBook), reproductores de audio multitrack y un sistema de fonética interactiva.
 
 ---
 
-## ðŸ› ï¸ Stack TecnolÃ³gico
+## 🚀 Características Principales
 
-| TecnologÃ­a / Herramienta | VersiÃ³n | DescripciÃ³n / Uso |
+- 📖 **Visor FlipBook 3D**: Previsualización interactiva de páginas de ejemplo con animaciones 3D y soporte táctil (*swipe*) para dispositivos móviles.
+- 🎵 **Catálogo Musical (45 Canciones)**: Reproductor de audio exclusivo con control de concurrencia (reproducir un track detiene automáticamente el anterior).
+- 🔤 **Módulo de Fonética Interactiva (36 Audios + 39 Imágenes)**: Tarjetas interactivas de vocabulario y pronunciación A-Z para los niveles B y C.
+- 🌐 **Internacionalización (i18n Client-Side)**: Soporte bilingüe (Español / Inglés) en tiempo real con más de 80 claves de traducción sin recarga de página.
+- 💬 **Integración con WhatsApp API**: Canal de contacto comercial pre-configurado para atención a clientes e instituciones educativas.
+- 🇨🇴 **Alineación Pedagógica**: Basado en los 6 campos formativos del Programa de Educación Preescolar Colombiano.
+- ⚡ **Rendimiento Ultrarrápido (SSG)**: Compilado con Astro v7 para generar HTML/CSS estático con 0KB de JavaScript innecesario en el cliente.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+| Tecnología / Herramienta | Versión | Descripción / Uso |
 | :--- | :---: | :--- |
-| **Astro** | `v7.1.3` | Framework SSG principal para generaciÃ³n de sitio estÃ¡tico de alto rendimiento. |
-| **TypeScript** | `v6.0.3` | Lenguaje base para tipado estÃ¡tico y robustez en la lÃ³gica. |
-| **Node.js** | `v22.12.0` | Entorno de ejecuciÃ³n y compilaciÃ³n del proyecto. |
-| **CSS Custom Properties** | Nativo | Variables CSS dinÃ¡micas y scoped por componente. |
-| **WhatsApp API** | `v1.0` | GeneraciÃ³n de enlaces pre-cargados para contacto comercial directo. |
-| **Google Fonts** | Service | TipografÃ­as *Nunito* (tÃ­tulos/botones) e *Inter* (cuerpo de texto). |
+| **Astro** | `v7.1.3` | Framework SSG principal para generación de sitio estático de alto rendimiento. |
+| **TypeScript** | `v6.0.3` | Lenguaje base para tipado estático y robustez en la lógica. |
+| **Node.js** | `v22.12.0` | Entorno de ejecución y compilación del proyecto. |
+| **CSS Custom Properties** | Nativo | Variables CSS dinámicas y scoped por componente. |
+| **WhatsApp API** | `v1.0` | Generación de enlaces pre-cargados para contacto comercial directo. |
+| **Google Fonts** | Service | Tipografías *Nunito* (títulos/botones) e *Inter* (cuerpo de texto). |
 
 ---
 
-## ðŸ“‚ Estructura del Proyecto
+## 📂 Estructura del Proyecto
 
 ```text
 english-lab-web/
-â”œâ”€â”€ public/
-â”‚   â”œâ”€â”€ audio/          # 45 canciones MP3 y 36 audios de fonÃ©tica
-â”‚   â””â”€â”€ images/         # Logos, covers, 21 pÃ¡gs. de FlipBook y 39 imÃ¡genes fonÃ©ticas
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ components/     # 7 componentes Astro nativos (Header, Hero, FlipBook, AudioPlayer, etc.)
-â”‚   â”œâ”€â”€ i18n/           # Diccionarios de traducciÃ³n (ES/EN) y helper dinÃ¡mico
-â”‚   â”œâ”€â”€ layouts/        # Layout base HTML (Layout.astro)
-â”‚   â”œâ”€â”€ pages/          # 11 rutas estÃ¡ticas (/books, /songs, /phonetics, /contact, etc.)
-â”‚   â””â”€â”€ styles/         # Estilos globales y variables CSS custom
-â”œâ”€â”€ astro.config.mjs
-â”œâ”€â”€ package.json
-â””â”€â”€ tsconfig.json
+├── public/
+│   ├── audio/          # 45 canciones MP3 y 36 audios de fonética
+│   └── images/         # Logos, covers, 21 págs. de FlipBook y 39 imágenes fonéticas
+├── src/
+│   ├── components/     # 7 componentes Astro nativos (Header, Hero, FlipBook, AudioPlayer, etc.)
+│   ├── i18n/           # Diccionarios de traducción (ES/EN) y helper dinámico
+│   ├── layouts/        # Layout base HTML (Layout.astro)
+│   ├── pages/          # 11 rutas estáticas (/books, /songs, /phonetics, /contact, etc.)
+│   └── styles/         # Estilos globales y variables CSS custom
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
 ---
 
-## ðŸ—ºï¸ PÃ¡ginas y Rutas
+## 🗺️ Páginas y Rutas
 
-| Ruta | PÃ¡gina | DescripciÃ³n |
+| Ruta | Página | Descripción |
 | :--- | :--- | :--- |
-| `/` | **Inicio** | Hero principal, presentaciÃ³n de niveles, campos formativos y CTAs. |
-| `/books` | **Libros** | CatÃ¡logo general de los 3 niveles (A, B y C). |
-| `/books/a` | **Libro A** | Visor FlipBook (8 pÃ¡g.) + 24 canciones integradas. |
-| `/books/b` | **Libro B** | Visor FlipBook (6 pÃ¡g.) + 9 canciones integradas. |
-| `/books/c` | **Libro C** | Visor FlipBook (7 pÃ¡g.) + 12 canciones integradas. |
+| `/` | **Inicio** | Hero principal, presentación de niveles, campos formativos y CTAs. |
+| `/books` | **Libros** | Catálogo general de los 3 niveles (A, B y C). |
+| `/books/a` | **Libro A** | Visor FlipBook (8 pág.) + 24 canciones integradas. |
+| `/books/b` | **Libro B** | Visor FlipBook (6 pág.) + 9 canciones integradas. |
+| `/books/c` | **Libro C** | Visor FlipBook (7 pág.) + 12 canciones integradas. |
 | `/songs` | **Canciones** | Reproductores para las 45 canciones con filtro interactivo por nivel. |
-| `/phonetics` | **FonÃ©tica** | NavegaciÃ³n hacia mÃ³dulos fonÃ©ticos por nivel. |
-| `/phonetics/b` | **FonÃ©tica B** | 10 tarjetas con pronunciaciÃ³n e imagen asociada. |
-| `/phonetics/c` | **FonÃ©tica C** | 26 tarjetas (A-Z) con pronunciaciÃ³n e imagen asociada. |
-| `/about` | **Nosotros** | MisiÃ³n, visiÃ³n y propuesta pedagÃ³gica de Emprender Ediciones. |
+| `/phonetics` | **Fonética** | Navegación hacia módulos fonéticos por nivel. |
+| `/phonetics/b` | **Fonética B** | 10 tarjetas con pronunciación e imagen asociada. |
+| `/phonetics/c` | **Fonética C** | 26 tarjetas (A-Z) con pronunciación e imagen asociada. |
+| `/about` | **Nosotros** | Misión, visión y propuesta pedagógica de Emprender Ediciones. |
 | `/contact` | **Contacto** | Formulario con enlace pre-configurado a la API de WhatsApp. |
 
 ---
 
-## âš¡ InstalaciÃ³n y ConfiguraciÃ³n Local
+## ⚡ Instalación y Configuración Local
 
 ### Prerrequisitos
-AsegÃºrate de tener instalado [Node.js](https://nodejs.org/) (versiÃ³n `>=22.12.0`) y `git` en tu sistema.
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión `>=22.12.0`) y `git` en tu sistema.
 
 ### Pasos
 
@@ -96,37 +96,35 @@ AsegÃºrate de tener instalado [Node.js](https://nodejs.org/) (versiÃ³n `>=22
    ```bash
    npm run dev
    ```
-   Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver la aplicaciÃ³n en funcionamiento.
+   Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver la aplicación en funcionamiento.
 
-4. **Construir para producciÃ³n (Build):**
+4. **Construir para producción (Build):**
    ```bash
    npm run build
    ```
-   Los archivos compilados listos para despliegue se generarÃ¡n en la carpeta `dist/`.
+   Los archivos compilados listos para despliegue se generarán en la carpeta `dist/`.
 
-5. **Previsualizar la versiÃ³n de producciÃ³n:**
+5. **Previsualizar la versión de producción:**
    ```bash
    npm run preview
    ```
 
 ---
 
-## ðŸ“Š MÃ©tricas de Calidad y Rendimiento
+## 📊 Métricas de Calidad y Rendimiento
 
-El sitio fue evaluado con **Google Lighthouse** bajo estÃ¡ndares exigentes para garantizar la mejor experiencia de usuario:
+El sitio fue evaluado con **Google Lighthouse** bajo estándares exigentes para garantizar la mejor experiencia de usuario:
 
 - **Performance**: $\ge 90 / 100$
 - **Accesibilidad (A11y)**: $\ge 90 / 100$
 - **Best Practices**: $\ge 90 / 100$
 - **SEO**: $\ge 90 / 100$
 - **First Contentful Paint (FCP)**: $< 1.5	ext{s}$ (Redes 3G/4G)
-- **Cambio de Idioma (i18n)**: $< 100	ext{ms}$ (instantÃ¡neo, client-side)
+- **Cambio de Idioma (i18n)**: $< 100	ext{ms}$ (instantáneo, client-side)
 
 ---
 
-## ðŸ‘¤ CrÃ©ditos y Desarrollo
+## 👤 Créditos y Desarrollo
 
-- **Desarrollador Principal**: Samuel David Molina GÃ³mez
-- **Cliente / Editorial**: Emprender Ediciones (BogotÃ¡, Colombia)
-- **Jefe Inmediato**: Mario Ricardo (Tel: +57 324 677 2124)
-- **Contacto Comercial**: +57 321 464 9099
+- **Desarrollador Principal**: Samuel David Molina Gómez
+- **Cliente / Editorial**: Emprender Ediciones (Bogotá, Colombia)

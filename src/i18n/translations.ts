@@ -55,7 +55,7 @@ export const translations = {
       contact: 'Contact',
     },
     books: {
-      title: 'English Lab',
+      title: 'Series',
       subtitle: 'Three levels designed to accompany children in preschool, taking into account the formative fields of the Preschool Education Program.',
       descA: 'Designed for the little ones, exploring English through play, music, and exploration of the world around them. Includes recognition activities, basic vocabulary, and songs that motivate learning.',
       descB: 'Strengthens knowledge with language, mathematical thinking, and artistic expression activities. Children expand their vocabulary and begin forming simple sentences in English.',
@@ -221,7 +221,7 @@ export const translations = {
       contact: 'Contactar',
     },
     books: {
-      title: 'English Lab',
+      title: 'Serie',
       subtitle: 'Tres niveles diseñados para acompañar a los niños en la etapa preescolar, tomando en cuenta los campos formativos del Programa de Educación Preescolar.',
       descA: 'Diseñada para los más pequeños, explorando el inglés a través del juego, la música y la exploración del mundo que los rodea. Incluye actividades de reconocimiento, vocabulario básico y canciones que motivan el aprendizaje.',
       descB: 'Fortalece los conocimientos adquiridos con actividades de lenguaje, pensamiento matemático y expresión artística. Los niños expanden su vocabulario y comienzan a formar oraciones simples en inglés.',

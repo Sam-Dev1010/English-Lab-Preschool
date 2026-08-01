@@ -1,0 +1,233 @@
+---
+import { t } from '../i18n/index';
+---
+
+<div id="access-gate" class="access-gate hidden">
+  <div class="gate-card">
+    <img src="/logos/LOGO EMPRENDER EDICIONES.jpg" alt="Emprender Ediciones" class="gate-logo" />
+    <h2 data-i18n="gate.title">¿Quién eres?</h2>
+    <p class="gate-subtitle" data-i18n="gate.subtitle">Selecciona tu perfil e ingresa tu PIN</p>
+
+    <div class="gate-roles" id="gate-roles">
+      <button class="gate-role" data-role="teacher">
+        <span class="gate-role-icon">👩‍🏫</span>
+        <span class="gate-role-name" data-i18n="gate.teacher">Profesor</span>
+        <span class="gate-role-desc" data-i18n="gate.teacherDesc">Acceso a todo el contenido y ayudas pedagógicas</span>
+      </button>
+      <button class="gate-role" data-role="student">
+        <span class="gate-role-icon">🧒</span>
+        <span class="gate-role-name" data-i18n="gate.student">Estudiante</span>
+        <span class="gate-role-desc" data-i18n="gate.studentDesc">Acceso a libros, canciones y fonética</span>
+      </button>
+    </div>
+
+    <div class="gate-pin" id="gate-pin" hidden>
+      <label for="gate-pin-input" data-i18n="gate.pinLabel">Ingresa tu PIN</label>
+      <div class="gate-pin-row">
+        <input type="password" inputmode="numeric" maxlength="4" id="gate-pin-input" placeholder="••••" autocomplete="off" />
+        <button id="gate-enter" class="btn btn-primary" data-i18n="gate.enter">Entrar</button>
+      </div>
+      <p class="gate-error" id="gate-error" data-i18n="gate.error" hidden>PIN incorrecto</p>
+      <button class="gate-back" id="gate-back" data-i18n="gate.back">← Cambiar perfil</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .access-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .access-gate.hidden {
+    display: none;
+  }
+  .gate-card {
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    padding: 48px 40px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+  }
+  .gate-logo {
+    max-height: 64px;
+    margin: 0 auto 24px;
+    object-fit: contain;
+  }
+  .gate-card h2 {
+    margin-bottom: 8px;
+  }
+  .gate-subtitle {
+    color: var(--gray);
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+  .gate-roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .gate-role {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 28px 16px;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius);
+    background: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Nunito', sans-serif;
+  }
+  .gate-role:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  .gate-role-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+  .gate-role-name {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--dark);
+  }
+  .gate-role-desc {
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-weight: 400;
+  }
+  .gate-pin {
+    margin-top: 24px;
+  }
+  .gate-pin label {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .gate-pin-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .gate-pin-row input {
+    width: 120px;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    padding: 12px;
+    border: 2px solid var(--gray-light);
+    border-radius: 12px;
+    outline: none;
+    transition: var(--transition);
+  }
+  .gate-pin-row input:focus {
+    border-color: var(--orange);
+  }
+  .gate-error {
+    color: #e11d48;
+    font-weight: 600;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+  .gate-back {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+  .gate-back:hover {
+    color: var(--orange);
+  }
+
+  @media (max-width: 480px) {
+    .gate-card {
+      padding: 32px 20px;
+    }
+    .gate-roles {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { t } from '../i18n/index';
+
+  const TEACHER_PIN = '1805';
+  const STUDENT_PIN = '1610';
+  const ROLE_KEY = 'english-lab-role';
+
+  function applyRole(role: 'teacher' | 'student') {
+    document.body.dataset.role = role;
+    document.getElementById('access-gate')?.classList.add('hidden');
+  }
+
+  function showPinFor(role: 'teacher' | 'student') {
+    document.getElementById('gate-roles')?.setAttribute('hidden', '');
+    document.getElementById('gate-pin')?.removeAttribute('hidden');
+    const input = document.getElementById('gate-pin-input') as HTMLInputElement;
+    input?.focus();
+    (document.getElementById('gate-error') as HTMLElement | null)?.setAttribute('hidden', '');
+  }
+
+  function showRoles() {
+    document.getElementById('gate-roles')?.removeAttribute('hidden');
+    document.getElementById('gate-pin')?.setAttribute('hidden', '');
+    const input = document.getElementById('gate-pin-input') as HTMLInputElement;
+    if (input) input.value = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('access-gate')?.classList.remove('hidden');
+
+    let selectedRole: 'teacher' | 'student' | null = null;
+
+    document.querySelectorAll('.gate-role').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedRole = (btn.getAttribute('data-role') as 'teacher' | 'student');
+        showPinFor(selectedRole);
+      });
+    });
+
+    document.getElementById('gate-back')?.addEventListener('click', showRoles);
+
+    const tryEnter = () => {
+      if (!selectedRole) return;
+      const input = document.getElementById('gate-pin-input') as HTMLInputElement;
+      const pin = input?.value.trim() ?? '';
+      const valid =
+        (selectedRole === 'teacher' && pin === TEACHER_PIN) ||
+        (selectedRole === 'student' && pin === STUDENT_PIN);
+      if (valid) {
+        localStorage.setItem(ROLE_KEY, selectedRole);
+        applyRole(selectedRole);
+      } else {
+        const err = document.getElementById('gate-error');
+        if (err) err.removeAttribute('hidden');
+        input?.select();
+      }
+    };
+
+    document.getElementById('gate-enter')?.addEventListener('click', tryEnter);
+    document.getElementById('gate-pin-input')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') tryEnter();
+    });
+  });
+</script>

@@ -11,6 +11,7 @@ const currentPath = Astro.url.pathname;
       <a href="/books" class:list={["nav-link", { active: currentPath.startsWith('/books') }]} data-i18n="nav.books">Libros</a>
       <a href="/songs" class:list={["nav-link", { active: currentPath === '/songs' }]} data-i18n="nav.songs">Canciones</a>
       <a href="/phonetics" class:list={["nav-link", { active: currentPath.startsWith('/phonetics') }]} data-i18n="nav.phonetics">Fonética</a>
+      <a href="/workshops" class:list={["nav-link teacher-only", { active: currentPath.startsWith('/workshops') }]} data-i18n="nav.workshops">Ayudas Pedagógicas</a>
       <a href="/about" class:list={["nav-link", { active: currentPath === '/about' }]} data-i18n="nav.about">Nosotros</a>
       <a href="/contact" class:list={["nav-link", { active: currentPath === '/contact' }]} data-i18n="nav.contact">Contacto</a>
     </nav>

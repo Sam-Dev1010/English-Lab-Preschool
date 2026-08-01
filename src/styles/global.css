@@ -40,6 +40,11 @@ body {
   overflow-x: hidden;
 }
 
+body[data-role="student"] .teacher-only,
+body:not([data-role]) .teacher-only {
+  display: none !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Nunito', sans-serif;
   font-weight: 800;

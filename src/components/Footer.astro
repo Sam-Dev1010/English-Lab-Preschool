@@ -18,6 +18,8 @@
         <h4 data-i18n="footer.links">Enlaces</h4>
         <a href="/songs" data-i18n="nav.songs">Canciones</a>
         <a href="/phonetics" data-i18n="nav.phonetics">Fonética</a>
+        <a href="/workshops" class="teacher-only" data-i18n="nav.workshops">Ayudas Pedagógicas</a>
+        <a href="#" class="change-role" id="change-role" data-i18n="footer.changeRole">Cambiar rol</a>
         <a href="/about" data-i18n="nav.about">Nosotros</a>
         <a href="/contact" data-i18n="nav.contact">Contacto</a>
       </div>
@@ -87,3 +89,14 @@
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const changeRole = document.getElementById('change-role');
+    changeRole?.addEventListener('click', e => {
+      e.preventDefault();
+      localStorage.removeItem('english-lab-role');
+      window.location.reload();
+    });
+  });
+</script>

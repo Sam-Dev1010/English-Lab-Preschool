@@ -36,7 +36,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
 <style>
   .flipbook-wrapper {
-    margin: 40px 0;
+    margin: 24px 0 40px;
   }
   .flipbook-stage {
     display: flex;
@@ -44,8 +44,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
     overflow: hidden;
   }
   .flipbook-viewer {
-    width: 100%;
-    max-width: 900px;
+    width: min(100%, 720px, calc((100vh - 260px) * 4 / 3));
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
@@ -163,7 +162,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 16px;
   }
   .flip-btn {
     display: inline-flex;

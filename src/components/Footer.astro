@@ -95,7 +95,7 @@
     const changeRole = document.getElementById('change-role');
     changeRole?.addEventListener('click', e => {
       e.preventDefault();
-      localStorage.removeItem('english-lab-role');
+      sessionStorage.removeItem('english-lab-role');
       window.location.reload();
     });
   });

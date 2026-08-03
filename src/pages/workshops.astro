@@ -156,7 +156,7 @@ import { t } from '../i18n/index';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const role = localStorage.getItem('english-lab-role');
+    const role = sessionStorage.getItem('english-lab-role');
     if (role !== 'teacher') {
       window.location.href = '/';
     }

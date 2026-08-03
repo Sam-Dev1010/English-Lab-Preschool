@@ -40,7 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-body[data-role="student"] .teacher-only,
 body:not([data-role]) .teacher-only {
   display: none !important;
 }

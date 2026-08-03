@@ -145,15 +145,12 @@ export const translations = {
     },
     gate: {
       title: 'Who are you?',
-      subtitle: 'Select your profile and enter your PIN',
+      subtitle: 'Enter your PIN to access',
       teacher: 'Teacher',
       teacherDesc: 'Access to all content and pedagogical aids',
-      student: 'Student',
-      studentDesc: 'Access to books, songs and phonetics',
       pinLabel: 'Enter your PIN',
       enter: 'Enter',
       error: 'Incorrect PIN',
-      back: '← Change profile',
     },
     flipbook: {
       prev: 'Previous',
@@ -339,15 +336,12 @@ export const translations = {
     },
     gate: {
       title: '¿Quién eres?',
-      subtitle: 'Selecciona tu perfil e ingresa tu PIN',
+      subtitle: 'Ingresa tu PIN para acceder',
       teacher: 'Profesor',
       teacherDesc: 'Acceso a todo el contenido y ayudas pedagógicas',
-      student: 'Estudiante',
-      studentDesc: 'Acceso a libros, canciones y fonética',
       pinLabel: 'Ingresa tu PIN',
       enter: 'Entrar',
       error: 'PIN incorrecto',
-      back: '← Cambiar perfil',
     },
     flipbook: {
       prev: 'Anterior',

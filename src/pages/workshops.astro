@@ -262,6 +262,55 @@ const pageLabel = (n: number) => String(n).padStart(2, '0');
     const role = sessionStorage.getItem('english-lab-role');
     if (role !== 'teacher') {
       window.location.href = '/';
+      return;
     }
+
+    const lightbox = document.getElementById('page-lightbox') as HTMLElement | null;
+    const lightboxImg = document.getElementById('page-lightbox-img') as HTMLImageElement | null;
+    const downloadBtn = document.getElementById('page-lightbox-download') as HTMLElement | null;
+    let currentLabel = '';
+
+    function openLightbox(label: string) {
+      const btn = document.querySelector(`[data-open-modal="${label}"]`);
+      const img = btn?.querySelector('img') as HTMLImageElement | null;
+      if (!img || !lightbox || !lightboxImg) return;
+      currentLabel = label;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const label = btn.getAttribute('data-open-modal');
+        if (label) openLightbox(label);
+      });
+    });
+
+    lightbox?.querySelectorAll('[data-close]').forEach((el) => {
+      el.addEventListener('click', closeLightbox);
+    });
+
+    downloadBtn?.addEventListener('click', () => {
+      if (!currentLabel) return;
+      const a = document.createElement('a');
+      a.href = `/workshops/pages/workshop-${currentLabel}.pdf`;
+      a.download = `workshop-${currentLabel}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   });
 </script>
